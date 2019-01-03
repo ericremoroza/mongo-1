@@ -8,3 +8,8 @@ h1 {
     padding: 10px;
     background-color: #0C5A2C;
 }
+
+.article-title {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
