@@ -45,7 +45,7 @@ app.get("/scrape", function (req, res) {
 
             // Add the text and href of every link, and save them as properties of the result object
             result.title = $(this)
-                .children("a")
+                .children("a.js_link")
                 .text();
 
             result.link = $(this)
@@ -64,7 +64,7 @@ app.get("/scrape", function (req, res) {
                 });
         });
 
-        $("article").each(function (i, element) {
+        $("div.excerpt").each(function (i, element) {
             // Save an empty result object
             var result = {};
 
@@ -85,7 +85,7 @@ app.get("/scrape", function (req, res) {
                 });
         });
         // // If we were able to successfully scrape and save an Article, send a message to the client
-        // res.send("Scrape Complete");
+        res.send("Scrape Complete");
     });
 });
 

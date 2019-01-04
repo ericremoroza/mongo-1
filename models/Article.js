@@ -3,14 +3,14 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
-    headline: {
+    title: {
         type: String,
         required: true
     },
     summary: {
         type: String
     },
-    url: {
+    link: {
         type: String
     },
     isSaved: {
