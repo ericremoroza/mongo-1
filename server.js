@@ -73,7 +73,7 @@ app.get("/scrape", function (req, res) {
                 .children("p")
                 .text();
 
-            // Create a new Article using the `result` object built from scraping
+            // Add summary
             db.Article.create(result)
                 .then(function (dbArticle) {
                     // View the added result in the console

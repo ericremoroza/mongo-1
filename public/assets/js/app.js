@@ -2,51 +2,10 @@
 $.getJSON("/articles", function(data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
-       // Display the apropos information on the page
-        // Display the apropos information on the page
-        var panelDiv = $("<div>")
-        panelDiv.attr("id", data[i]._id)
-        panelDiv.addClass("panel panel-default")
-  
-        var panelHeading = $("<div class='panel-heading' ></div>")
-  
-        var panelTitle = $("<h3 class='panel-title' ></h3>")
-        
-        var panelSummary = $("<p class='panel-summary' ></p>")
-        var newATag = $("<a class='article-title'>");
-        newATag.attr("target", "_blank")
-        newATag.attr("href", data[i].link)
-        newATag.text(data[i].title)
-  
-        panelTitle.append(newATag)
-        panelHeading.append(panelTitle)
-        panelDiv.append(panelHeading)
-  
-        panelDiv.append(data[i].summary)
-        panelSummary.append(data[i].summary)
-         // if the article is saved
-        if (data[i].isSaved){
-  
-        //create a delete button
-          panelTitle.append("<button data-id='" + data[i]._id + "' class='btn btn-warning delete-button'>" + "Delete Article" + "</button>");
-          // create a note button
-          panelTitle.append("<button data-id='" + data[i]._id + "' class='btn btn-success note-button'>" + "Article Notes" + "</button>");
-          // append to the div with id saved-articles (in saved page)
-          $("#saved-articles").append(panelDiv)
-        }
-        // if it is not saved
-        else{      
-  
-        //create a save button
-          panelTitle.append("<button data-id='" + data[i]._id + "' class='btn btn-primary save-button'>" + "Save Article" + "</button>");
-          // append to the div with id articles (in index page)
-          $("#articles").append(panelDiv)
-        
-        }
-  
-      }
+      // Display the apropos information on the page
+      $("#articles").append("<h3 class='article-title' data-id='" + data[i]._id + "'>" + "<a href='" + data[i].link + "'>"+ data[i].title + "<a/>" + "</h3>" + "<button data-id='" + data[i]._id + "' class='btn btn-primary save-button'>" + "Save Article" + "</button>");
+    }
   });
-  
   
   // Whenever someone clicks a p tag
   $(document).on("click", "p", function() {
